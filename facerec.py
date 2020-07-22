@@ -8,15 +8,14 @@ video_capture = cv2.VideoCapture(0)
 
 #connect to the db
 con = psycopg2.connect(
-            #host = " ",
-            database="Sample",
-            user = "postgres",
-            password = "rishab")
+            database="Your_Database_Name",
+            user = "Your_username",
+            password = "Your_Password")
 
 #cursor
 cur = con.cursor()
 
-cur.execute("select Name,Image from Users")
+cur.execute("select Name,Image from tablename")
 rows = cur.fetchall()
 
 
