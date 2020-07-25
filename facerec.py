@@ -1,6 +1,7 @@
 import face_recognition
 import cv2
 import psycopg2
+import config
 
 video_capture = cv2.VideoCapture(0)
 
@@ -8,9 +9,9 @@ video_capture = cv2.VideoCapture(0)
 
 #connect to the db
 con = psycopg2.connect(
-            database="Your_Database_Name",
-            user = "Your_username",
-            password = "Your_Password")
+            database=config.database,
+            user = config.username,
+            password = config.password)
 
 #cursor
 cur = con.cursor()
