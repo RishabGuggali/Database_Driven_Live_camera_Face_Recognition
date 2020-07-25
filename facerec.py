@@ -5,8 +5,6 @@ import config
 
 video_capture = cv2.VideoCapture(0)
 
-
-
 #connect to the db
 con = psycopg2.connect(
             database=config.database,
@@ -22,6 +20,7 @@ rows = cur.fetchall()
 
 known_face_names=[]
 known_face_encodings =[]
+
 for r in rows:
     known_face_encodings.append(face_recognition.face_encodings(face_recognition.load_image_file(r[1]))[0])
 
